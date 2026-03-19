@@ -9,6 +9,8 @@
 \usepackage{cite}
 
 \begin{document}
+\fontsize{12.5pt}{18pt}\selectfont
+
 \pagenumbering{gobble} % suppress displaying page number
 
 \name{徐永浩}
@@ -25,7 +27,7 @@
 
 % \section{\faGraduationCap\ 教育背景}
 \section{教育背景}
-\datedsubsection{\textbf{上海交通大学},仪器仪表工程,\textit{硕士}}{2016.9 - 2019.6}
+\datedsubsection{\textbf{上海交通大学},仪器仪表工程,\textit{硕士}}{2016.9 - 2019.4}
 % \ \textbf{排名11/133(前10\%)},中国科学院大学学业奖学金(2次),IEEE Student member,预计2018年6月毕业
 \datedsubsection{\textbf{上海交通大学},测控技术与仪器,\textit{本科}}{2012.9 - 2016.6}
 % \ \textbf{排名2/62(前5\%)},国家励志奖学金,人民奖学金(7次),科技竞赛奖(2次),北京市普通高等学校优秀毕业生,北京理工大学优秀毕业生,软件学院金牌毕业生,优秀团员/优秀学生(5次)
@@ -37,28 +39,36 @@
 \begin{itemize}[parsep=0.2ex]
   \item 掌握C、C++、Lua、Python编程语言
   \item 熟悉MongoDB、Etcd
-  \item 熟悉游戏服务器架构，熟悉skynet框架
+  \item 熟悉游戏服务器架构
 \end{itemize}
 
 % \end{itemize}
 
 \section{项目经历}
 
-\datedsubsection{\textbf{英雄互娱 | 二重螺旋}, 服务端负责人}{2021-至今}
+\datedsubsection{\textbf{英雄互娱 | 二重螺旋}, 服务端开发（组长）}{2021-至今}
+带领服务端组完成三轮测试和公测，服务器运行稳定，首日国服最高40w在线，300w注册
 \begin{itemize}
-  \item 基于skynet，从0到1搭建服务器框架，设计并实现核心功能模块
-  \item 带领团队完成三轮测试和公测，服务器运行稳定，首日国服最高40w在线，300w注册
-  \item 分布式架构，通过Etcd实现服务注册与发现，支持动态扩容
-  \item 属性系统
-  \item 压测与优化：实现压测系统，业务逻辑层优化（单点压力），数据库优化（分片/索引策略/读写分离/慢日志优化等），内存泄漏检测与内存优化（主要针对玩家数据），提高登录并发量，确定单服承载，提升服务器性能
-  \item 审核代码，提出改进优化意见
-  \item 线上服务器部署与维护
+  \item 架构：基于skynet，从0到1搭建分布式服务器系统，通过Etcd实现服务注册与发现，支持动态扩容
+  \item 属性：支持各种基础属性和自定义属性，支持属性嵌套；实现属性同步，同步粒度可选，支持序列化；实现属性存档，支持属性分表存储
+  \item 压测：实现压测系统，部署压测集群，对游戏内系统进行全面压测，为了模拟开服时玩家集中登录的真实场景，部署了登录服集群和压测集群，启动了40W机器人集中登录，整个集群登录的tps达到4000，以此为标准，计算线上登录服集群的规模，为开服集中登录做好充分准备
+  \item 优化：业务逻辑层优化（单点压力），数据库优化（分片/索引策略/读写分离/慢日志优化/支持主从切换等），内存泄漏检测与内存优化（针对各类ServerEntity），线上热更（所有lua业务逻辑和导表文件都支持热更）
+  \item 系统：登录，定时任务，聊天等
+  \item 其他：线上服务器部署与维护，审核代码，提出改进优化意见
 \end{itemize}
 
-\datedsubsection{\textbf{网易 | 幻书启世录}, 服务端开发工程师}{2019-2021}
+\datedsubsection{\textbf{网易 | 幻书启世录}, 服务端开发}{2019-2021}
 \begin{itemize}
-  \item 11
+  \item 战令、商城等系统UI开发
+  \item 服务端活动玩法开发
+  \item 学习了MoblieServer
 \end{itemize}
+
+
+
+\section{个人总结}
+具备扎实的游戏服务端开发经验，熟悉分布式架构、性能优化、压测及线上运维，能够围绕业务目标持续推动系统落地与优化。工作认真负责，积极主动，乐于钻研技术细节，能够适应新技术与新变化，也愿意在实践中不断学习和成长，为团队和产品持续创造价值。
+
 
 % \begin{onehalfspacing}
 % \end{onehalfspacing}
