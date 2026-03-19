@@ -9,7 +9,7 @@
 \usepackage{cite}
 
 \begin{document}
-\fontsize{12.5pt}{18pt}\selectfont
+\fontsize{11pt}{18pt}\selectfont
 
 \pagenumbering{gobble} % suppress displaying page number
 
@@ -24,7 +24,12 @@
  
 % \section{个人总结}
 % 本人在校成绩优秀、乐观向上，工作负责、自我驱动力强、热爱尝试新事物，认同开放、连接、共享的Web在未来的不可替代性。在校期间长期从事可视分析(Web的2D/3D时空可视化)相关研究，对Web技术发展趋势及前端工程化解决方案有浓厚兴趣。\textbf{现任职于 BAT 集团。}
-
+% \section{\faGraduationCap\ 教育背景}
+\section{教育背景}
+\datedsubsection{\textbf{上海交通大学},仪器仪表工程,\textit{硕士}}{2016.9 - 2019.4}
+% \ \textbf{排名11/133(前10\%)},中国科学院大学学业奖学金(2次),IEEE Student member,预计2018年6月毕业
+\datedsubsection{\textbf{上海交通大学},测控技术与仪器,\textit{本科}}{2012.9 - 2016.6}
+% \ \textbf{排名2/62(前5\%)},国家励志奖学金,人民奖学金(7次),科技竞赛奖(2次),北京市普通高等学校优秀毕业生,北京理工大学优秀毕业生,软件学院金牌毕业生,优秀团员/优秀学生(5次)
 
 
 
@@ -32,8 +37,9 @@
 \section{技术能力}
 % increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.2ex]
-  \item 熟练使用C、C++、Lua、Python，具备扎实的服务端开发与问题定位能力
-  \item 熟悉skynet、MongoDB、Etcd，具备分布式服务设计与落地经验
+  \item 熟悉C、C++、Lua、Python
+  \item 熟悉Skynet框架、Etcd，具备分布式服务设计与落地经验
+  \item 熟悉MongoDB数据库，具备分片、索引优化、读写分离等优化经验
   \item 熟悉压测、性能优化、线上部署与运维，能够支撑高并发业务场景
 \end{itemize}
 
@@ -42,29 +48,51 @@
 \section{项目经历}
 
 \datedsubsection{\textbf{英雄互娱 | 二重螺旋}, 服务端开发（组长）}{2021-至今}
-\textbf{带领服务端组完成三轮测试与公测，服务器运行稳定，项目首日国服最高在线40万，注册用户300万。}
+\textbf{带领服务端组完成三轮测试与公测，项目首日国服最高在线40W+，注册用户300W+。}
 
+\subsection{服务器架构}
 \begin{itemize}
-  \item 负责服务端架构设计与核心模块开发，基于skynet从0到1搭建分布式服务器系统，通过Etcd实现服务注册与发现，支持动态扩容
-  \item 设计并实现通用属性系统，支持基础属性与自定义属性、嵌套结构、按粒度同步、序列化及分表存档，满足复杂角色数据管理需求
-  \item 搭建压测体系并部署压测集群，模拟40W机器人集中登录，集群登录TPS达到4000，据此评估线上集群规模并支撑开服容量方案制定
-  \item 主导性能与稳定性优化，包括业务热点治理、数据库分片与索引优化、读写分离、慢日志分析、主从切换支持、内存泄漏排查及Lua热更能力建设
-  \item 负责登录、定时任务、聊天等核心系统开发，参与线上部署与维护、代码评审及优化方案推进，推动版本稳定迭代
+  \item 基于skynet从0到1搭建分布式服务器系统
+  \item 按业务拆分服务（登录、战斗、匹配、聊天、Http、支付等），降低耦合
+  \item 通过Etcd实现服务注册与发现，支持动态扩容与负载均衡
+  \item 实现组件系统，支持模块化开发
 \end{itemize}
+
+
+\subsection{{属性}}
+\begin{itemize}
+  \item 设计并实现通用属性系统，支持基础属性与自定义属性
+  \item 支持嵌套结构，适配复杂数据需求，支持按粒度同步，降低带宽开销
+  \item 支持序列化与分表存储，规避 MongoDB 单文档 16MB 限制
+\end{itemize}
+
+
+\subsection{{压测与性能优化}}
+\begin{itemize}
+  \item 搭建压测体系并部署压测集群，推进各系统压测，提前发现性能瓶颈并进行优化
+  \item 构建 40W 机器人模拟真实玩家登录洪峰，集群登录 TPS 达到 4000，基于压测结果反推线上集群规模，指导开服部署方案
+  \item 热点服务拆分，降低单点压力，数据库分片与索引优化、读写分离、慢日志分析、支持主从切换
+\end{itemize}
+
+
+\subsection{{系统与运维}}
+\begin{itemize}
+  \item 负责登录、定时任务、事件触发器、聊天等核心系统开发
+  \item 实现 Lua 业务逻辑与导表配置的在线热更，支持快速迭代与问题修复
+  \item 负责服务端代码评审与技术方案设计，推动版本稳定迭代
+  \item 参与线上服务器部署与维护
+\end{itemize}
+
+
+
 
 \datedsubsection{\textbf{网易 | 幻书启世录}, 服务端开发}{2019-2021}
 \begin{itemize}
-  \item 参与战令、商城等系统功能开发与联调，支持版本内容落地
+  \item 负责战令、商城等系统UI开发与联调
   \item 负责服务端活动玩法开发，配合策划与客户端完成需求实现和上线
-  \item 熟悉MobileServer框架及游戏项目开发流程，积累活动系统和版本迭代经验
 \end{itemize}
 
-% \section{\faGraduationCap\ 教育背景}
-\section{教育背景}
-\datedsubsection{\textbf{上海交通大学},仪器仪表工程,\textit{硕士}}{2016.9 - 2019.4}
-% \ \textbf{排名11/133(前10\%)},中国科学院大学学业奖学金(2次),IEEE Student member,预计2018年6月毕业
-\datedsubsection{\textbf{上海交通大学},测控技术与仪器,\textit{本科}}{2012.9 - 2016.6}
-% \ \textbf{排名2/62(前5\%)},国家励志奖学金,人民奖学金(7次),科技竞赛奖(2次),北京市普通高等学校优秀毕业生,北京理工大学优秀毕业生,软件学院金牌毕业生,优秀团员/优秀学生(5次)
+
 
 \section{个人总结}
 具备扎实的游戏服务端开发经验，熟悉分布式架构、压测优化及线上运维，具备较强的问题分析与落地能力。工作认真负责，积极主动，能够适应新技术和新变化，愿意持续学习与改进，在实践中为团队和产品创造稳定可靠的价值。
